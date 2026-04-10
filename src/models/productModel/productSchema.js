@@ -1,31 +1,66 @@
-const mongoose = require('mongoose');
+const mongoose = require("mongoose");
 
-const productSchema = new mongoose.Schema({
-    productname:{
-        type:String,
-        required: true //If the value of this field is not given, the system will display an error.
+const productSchema = new mongoose.Schema(
+  {
+    name: {
+      type: String,
+      required: [true, "Product name is required"],
+      trim: true,
     },
-    category:{
-        type:String,
-        required:true
+    cat: {
+      type: String,
+      required: [true, "Category is required"],
     },
-    description:{
-        type:String,
-        required:true
+    badge: {
+      type: String,
+      required: [true, "Badge is required"],
     },
-    weight:{
-        type:String,
-        required: true,
-        lowercase: true
+    tags: {
+      type: [String],
+      default: [],
     },
-    price:{
-        type:String,
-        required: true
-    }
-},
-{
-  versionKey: false
-}
+    desc: {
+      type: String,
+      required: [true, "Description is required"],
+    },
+    orig: {
+      type: Number,
+      default: 0,
+    },
+    price: {
+      type: Number,
+      required: [true, "Price is required"],
+      min: [0, "Price cannot be negative"],
+    },
+    stock: {
+      type: Number,
+      required: [true, "Stock is required"],
+      min: [0, "Stock cannot be negative"],
+    },
+    availability: {
+      type: String,
+      enum: ["In Stock", "Out of Stock"],
+      default: "In Stock",
+    },
+    weight: {
+      type: Number,
+      required: [true, "Weight is required"],
+    },
+
+    image: {
+      type: [String],
+      validate: {
+        validator: function (v) {
+          return v && v.length > 0 && v.length <= 5;
+        },
+        message: "A product must have between 1 and 5 images",
+      },
+      required: [true, "At least one image is required"],
+    },
+  },
+  {
+    versionKey: false,
+  },
 );
-const productModel =  mongoose.model("productsData", productSchema); //databaser aer collection aer name dite hobe
+const productModel = mongoose.model("productsData", productSchema); //databaser aer collection aer name dite hobe
 module.exports = productModel;

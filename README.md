@@ -8,7 +8,7 @@ This project is an Express.js mongoose and folder setup  template for building a
 ### Installation
 
 ```bash
-🖱 # run this command to setup 
+🖱 # run this command to setup
  npm i mongoose crud templete
  npm i express cors bcrypt dotenv nodemon mongoose
 🖱# Create the ".env" file and copy the "example .env" data to the .env file and replace the "URLS"
@@ -51,12 +51,12 @@ Basic error handling is incorporated to catch and log any errors during database
 
 ### Description:
 ```bash
-if(!userData){ 
+if(!userData){
          return res.status(404).json({msg: "User data not found"});
 }
 ```
 👇
-মানে হচ্ছে যদি  **userData**  এর  মধ্যে  কোনো  data আসেনি বা  আগে  থেকেই  data  নেই  তাহলে  json  ফরম্যাটে  একটা এরর দিবে। 
+মানে হচ্ছে যদি  **userData**  এর  মধ্যে  কোনো  data আসেনি বা  আগে  থেকেই  data  নেই  তাহলে  json  ফরম্যাটে  একটা এরর দিবে।
 It means if there is no data in userData or there is no data already then it will give an error in json format.
 
 ## controller:
@@ -64,7 +64,7 @@ It means if there is no data in userData or there is no data already then it wil
 req.body
 ```
 👇
-ক্লায়েন্ট সাইট  থেকে  যে  ডাটা  গুলো  পাঠাবো  সেই  ডাটাগুলো  req.body  মধ্যে  আসবে।  আবার  req.body  এর  ডাটা গুলো  স্কিমা  মধ্যে পাঠাবো। আবার  স্কিমা সেই  ডাটা গুলো ভ্যালিট  কি না চেক  করে  mongodb  এর  কালেকশন এর  মধ্যে পাঠাবে।  
+ক্লায়েন্ট সাইট  থেকে  যে  ডাটা  গুলো  পাঠাবো  সেই  ডাটাগুলো  req.body  মধ্যে  আসবে।  আবার  req.body  এর  ডাটা গুলো  স্কিমা  মধ্যে পাঠাবো। আবার  স্কিমা সেই  ডাটা গুলো ভ্যালিট  কি না চেক  করে  mongodb  এর  কালেকশন এর  মধ্যে পাঠাবে।
 ```bash
 const hashPassword = await bcrypt.hash(req.body.password, 10)
 ```
@@ -72,7 +72,7 @@ const hashPassword = await bcrypt.hash(req.body.password, 10)
  এই লাইনে, ব্যবহারকারীর পাসওয়ার্ডকে bcrypt হ্যাশিং এর মাধ্যমে হ্যাশ করা হয়। এটি কেয়ার পাসওয়ার্ড হ্যাশিং এর জন্য 10 রাউন্ড ব্যবহার করে।
 
 ```bash
-  req.body.password = hashPassword 
+  req.body.password = hashPassword
   ```
  এই লাইনে, হ্যাশিং করা পাসওয়ার্ডটি ব্যবহারকারীর পাসওয়ার্ড ফিল্ডে প্রতিস্থাপন করা হয়।
 
@@ -87,7 +87,7 @@ const hashPassword = await bcrypt.hash(req.body.password, 10)
 
 "mongoose" মডিউলটি ব্যবহার করা হয় MongoDB ডাটাবেসের সাথে ইন্টারফেসে কাজ করার জন্য। এর মাধ্যমে আপনি MongoDB ডাটাবেস সংযোগ করতে, তাতে ডেটা সংগ্রহ করতে, তা পরিবর্তন করতে, ডেটা পরিচালনা করতে এবং অনেক অন্যান্য অপারেশন করতে পারবেন।
 
-"required: true" মডেলের ফিল্ড ডেফিনিশনের একটি প্যারামিটার যা ব্যবহার করা হয় মডেলের একটি ফিল্ড অবশ্যই আবশ্যক হওয়ার জন্য। অর্থাৎ, যদি একটি ফিল্ডে "required: true" সেট করা হয়, তাহলে সেই ফিল্ডের মান নির্ধারিত করা অবশ্যই হবে ডেটা সংরক্ষণ অথবা আপডেটের সময়। এই প্যারামিটারটি ব্যবহার করা হয় ডেটাবেসের ডেটা ভ্যালিডেশন এবং পুরন করার জন্য। 
+"required: true" মডেলের ফিল্ড ডেফিনিশনের একটি প্যারামিটার যা ব্যবহার করা হয় মডেলের একটি ফিল্ড অবশ্যই আবশ্যক হওয়ার জন্য। অর্থাৎ, যদি একটি ফিল্ডে "required: true" সেট করা হয়, তাহলে সেই ফিল্ডের মান নির্ধারিত করা অবশ্যই হবে ডেটা সংরক্ষণ অথবা আপডেটের সময়। এই প্যারামিটারটি ব্যবহার করা হয় ডেটাবেসের ডেটা ভ্যালিডেশন এবং পুরন করার জন্য।
 required: true" সেট করা হয়েছে, তাই এই ফিল্ডগুলি সংরক্ষণ বা আপডেটের সময় অবশ্যই উপস্থিত থাকতে হবে।
 
 <!-- CONTACT -->

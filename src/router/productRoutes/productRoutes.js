@@ -3,13 +3,13 @@ const { create, getAllData, getSingleData, updateData, deleteData,  } = require(
 const productRoutes = express.Router();
 
 //POST
-productRoutes.post('/create',create);
+productRoutes.post('/create-product',create);
 
 //GET
-productRoutes.get('/getAllData', getAllData);
+productRoutes.get('/getAllProducts', getAllData);
 
 //GETSingleData/:id
-productRoutes.get('/getSingleData/:id', getSingleData);
+productRoutes.get('/getSingleProduct/:id', getSingleData);
 
 //PUT/PATCH/:id
 productRoutes.put('/updateData/:id', updateData);
